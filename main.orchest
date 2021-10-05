@@ -1,0 +1,55 @@
+{
+    "name": "Main",
+    "parameters": {},
+    "services": {
+        "streamlit": {
+            "binds": {
+                "/data": "/data",
+                "/project-dir": "/usr/src/app/src"
+            },
+            "command": "-c 'umask 002 && touch /usr/src/app/src/streamlit.py && streamlit run src/streamlit.py'",
+            "entrypoint": "bash",
+            "env_variables": {
+                "STREAMLIT_SERVER_BASE_URL_PATH": "$BASE_PATH_PREFIX_8501"
+            },
+            "image": "orchest/streamlit",
+            "name": "streamlit",
+            "ports": [
+                8501
+            ],
+            "preserve_base_path": true,
+            "requires_authentication": false,
+            "scope": [
+                "interactive",
+                "noninteractive"
+            ]
+        }
+    },
+    "settings": {
+        "auto_eviction": false,
+        "data_passing_memory_size": "1GB"
+    },
+    "steps": {
+        "5a60688b-012a-463f-bf81-dc3105cdff5f": {
+            "environment": "6a1c8aef-2172-4284-b3cc-84a7bd628c9f",
+            "file_path": "blocking.py",
+            "incoming_connections": [],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    210.5,
+                    142.5
+                ]
+            },
+            "parameters": {},
+            "title": "Step - blocking",
+            "uuid": "5a60688b-012a-463f-bf81-dc3105cdff5f"
+        }
+    },
+    "uuid": "7394fed1-cfb2-4731-993a-b76f69dbf9ce",
+    "version": "1.0.0"
+}
